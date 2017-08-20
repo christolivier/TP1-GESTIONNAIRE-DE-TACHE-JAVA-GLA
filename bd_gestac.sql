@@ -1,0 +1,26 @@
+
+
+-- Base de données :  `bd_gestac`
+
+CREATE TABLE `membre` (
+  `ID_MEM` int(11) NOT NULL,
+  `NOM_MEM` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+CREATE TABLE `tache` (
+  `ID` int(11) NOT NULL,
+  `NOM_TAC` varchar(255) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL,
+  `STATUT` varchar(255) NOT NULL,
+  `MEM_fk` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+ALTER TABLE `membre`
+  ADD PRIMARY KEY (`ID_MEM`);
+ALTER TABLE `tache`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `MEM_fk` (`MEM_fk`);
+-- AUTO_INCREMENT pour la table `membre`
+--
+ALTER TABLE `membre`
+  MODIFY `ID_MEM` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tache`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
